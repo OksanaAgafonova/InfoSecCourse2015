@@ -163,12 +163,51 @@ git push
 \caption{Импорт чужого сертификата}
 \end{figure}
 
-\hspace{0,6cm} Попыталась расшифровать ваш файл karina.asc, не получилось, вышло следующее сообщение(см.рис.5):
+\hspace{0,6cm} Если подтвердить достоверность импортированного ключа, то его можно использовать для проверки чужой подписи. На рисунке 5 показана проверка файла 
 
 \begin{figure}[h!]
 \centering
-\includegraphics[scale=0.67]{res/Rasshifr}
-\caption{Расшифровка файла karina.asc}
+\includegraphics[scale=0.67]{res/Sign}
+\caption{Результат проверки файла myfirst.pdf}
 \end{figure}
+\clearpage
+\clearpage
+\subsubsection{Использовании gpg через интерфейс командной строки}
+
+\hspace{0,6cm}Результат, полученный при помощи Kleopatra легко повторить используя терминал. Генерация ключа происходит в диалоговом режиме после ввода команды
+\begin{verbatim}
+gpg --gen-key
+\end{verbatim}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.67]{res/Sertifikat3}
+\caption{Создание ключа}
+\end{figure}
+
+\hspace{0,6cm}Просмотреть доступные в системе ключи позволяет команда
+\begin{verbatim}gpg --list-keys
+\end{verbatim}
+Её вывод показан на рисунке 7.
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{res/Spisok}
+\caption{Список ключей в системе.}
+\end{figure}
+
+\hspace{0,6cm}Для экспорта можно использовать команду (ключ определяется по электронному адресу)
+\begin{verbatim}gpg --armor --output OksanaKey --export oksana_agafonova@inbox.ru
+\end{verbatim}
+
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.8]{res/OksanaKey}
+\caption{Сертификат}
+\end{figure}
+
+\hspace{0,6cm}Для импорта используется
+\begin{verbatim}gpg --import OksanaKey
+\end{verbatim}
 
 \end{document}
